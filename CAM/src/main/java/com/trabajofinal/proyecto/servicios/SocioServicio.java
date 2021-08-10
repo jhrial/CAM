@@ -24,5 +24,7 @@ public class SocioServicio {
        return (List<Socio>) sociorepositorio.findAll();
     }
     
-    
+   public Socio agregarSocio(Socio socio){
+       return sociorepositorio.save(socio);
+   }    
 }
