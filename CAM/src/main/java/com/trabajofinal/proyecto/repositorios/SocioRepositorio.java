@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author VicMusic
  */
 @Repository
-public interface SocioRepositorio extends JpaRepository<Socio, String>{
+public interface SocioRepositorio extends JpaRepository<Socio, Integer>{
     
 }
