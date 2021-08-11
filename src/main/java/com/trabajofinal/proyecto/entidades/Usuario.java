@@ -1,4 +1,3 @@
-
 package com.trabajofinal.proyecto.entidades;
 import java.util.Date;
 import javax.persistence.EnumType;
