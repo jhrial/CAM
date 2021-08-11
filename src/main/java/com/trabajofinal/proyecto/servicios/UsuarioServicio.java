@@ -58,9 +58,11 @@ public class UsuarioServicio {
 		return usuariorepositorio.save(usuarioB);
 	}
         
+        // Metodo listar
         @Transactional(readOnly = true)
 	public List<Usuario> usuarioActivos() {
 		return usuariorepositorio.buscarUsuario();
+                
 	}
         
         
