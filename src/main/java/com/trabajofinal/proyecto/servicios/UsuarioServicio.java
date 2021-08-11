@@ -12,4 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioServicio {
     
+    public String cargarUsuario(){
+        return null;
+    }
+    
 }
