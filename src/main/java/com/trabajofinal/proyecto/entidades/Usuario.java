@@ -8,6 +8,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
+@Entity
 public class Usuario {
     
     private static long serialVersionUID = 6522896498689132123L;
