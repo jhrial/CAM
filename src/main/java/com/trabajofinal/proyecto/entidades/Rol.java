@@ -9,6 +9,8 @@ package com.trabajofinal.proyecto.entidades;
  *
  * @author toroideit
  */
+
+@Entity
 class Rol {
     
 }

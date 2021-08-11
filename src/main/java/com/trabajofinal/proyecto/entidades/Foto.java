@@ -1,7 +1,6 @@
-
 package com.trabajofinal.proyecto.entidades;
 
-
+@Entity
 public class Foto {
     
     private String id;

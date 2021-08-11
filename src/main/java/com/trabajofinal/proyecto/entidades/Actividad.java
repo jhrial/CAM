@@ -1,8 +1,7 @@
-
 package com.trabajofinal.proyecto.entidades;
 import java.util.Date;
 
-
+@Entity
 public class Actividad {
     
     private String id;
