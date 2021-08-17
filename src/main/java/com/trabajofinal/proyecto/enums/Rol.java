@@ -1,7 +1,13 @@
+/*
+
+ */
 package com.trabajofinal.proyecto.enums;
-package com.trabajofinal.proyecto.entidades;
 
+/**
+ *
+ * @author VicMusic
+ */
 public enum Rol {
-	USUARIO, ADMIN;
 
+    USUARIO, SOCIO;
 }

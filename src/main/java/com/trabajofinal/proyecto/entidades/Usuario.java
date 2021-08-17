@@ -1,7 +1,5 @@
 package com.trabajofinal.proyecto.entidades;
-import com.trabajofinal.proyecto.enums.Rol;
 import java.util.Date;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -10,7 +8,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity
 public class Usuario {
     
     private static long serialVersionUID = 6522896498689132123L;
@@ -62,7 +59,23 @@ public class Usuario {
         this.id = id;
     }
 
+    /**
+     * @return the rol
+     */
+    public Rol getRol() {
+        return rol;
+    }
 
+    /**
+     * @param rol the rol to set
+     */
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    /**
+     * @return the email
+     */
     public String getEmail() {
         return email;
     }

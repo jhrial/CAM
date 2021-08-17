@@ -1,14 +1,9 @@
 package com.trabajofinal.proyecto.entidades;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity
+
 public class Actividad {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private String id;
     private String actividad;
     private float precio;
