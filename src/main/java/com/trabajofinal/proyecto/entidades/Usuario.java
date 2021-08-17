@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
-import com.trabajofinal.proyecto.enums.Rol;
 
 public class Usuario {
     
