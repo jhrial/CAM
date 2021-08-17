@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 
 @Entity
@@ -21,13 +23,16 @@ public class Socio {
     private String domicilio;
     private String telefono;
     private String osocial;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date falta;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fbaja;
     private String idactividad;
     private String telemergencia;
     private String observaciones;
     private String infosanitaria;
     private String idfoto;
+    @OneToOne
     private Pago inscripcion;
 
     /**
