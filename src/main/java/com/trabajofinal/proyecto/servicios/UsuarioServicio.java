@@ -11,10 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author VicMusic
- */
+
 @Service
 public class UsuarioServicio {
 
@@ -28,7 +25,7 @@ public class UsuarioServicio {
         
         Usuario usuarioG = new Usuario();
 
-        usuarioG.setRol(Rol.valueOf(clave));
+        usuarioG.setRol(Rol.valueOf(rol));
         usuarioG.setEmail(email);
         usuarioG.setClave(clave);
         usuarioG.setClave(clave);
@@ -68,7 +65,7 @@ public class UsuarioServicio {
     }
 
     public void validar(String rol, String email, String clave, Date creado, Date editado, boolean activo) throws Exception {
-        if (rol == null || rol.isEmpty() || rol.contains("  ")) {
+        if (rol == null) {
             throw new Exception();
         }
 
