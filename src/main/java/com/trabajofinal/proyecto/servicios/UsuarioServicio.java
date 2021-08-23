@@ -30,7 +30,7 @@ public class UsuarioServicio {
         
         Usuario usuarioG = new Usuario();
 
-        usuarioG.setRol(Rol.valueOf(clave));
+        usuarioG.setRol(Rol.valueOf(rol));
         usuarioG.setEmail(email);
         usuarioG.setClave(clave);
         usuarioG.setClave(clave);
