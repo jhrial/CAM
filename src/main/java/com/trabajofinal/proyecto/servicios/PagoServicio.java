@@ -136,7 +136,7 @@ public void registrarPago (Integer nSocio,String periodo, String idActividad){
 
     public List <Pago> listarPagos(){
            
-          List pagos=pagoRepositorio.findAll();
+          List pagos = pagoRepositorio.buscarTodosLosPagos();
 
           return pagos;
 
