@@ -1,5 +1,6 @@
 package com.trabajofinal.proyecto.entidades;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +30,7 @@ public class Socio {
     private String observaciones;
     private String infosanitaria;
     private String idfoto;
-    private Pago inscripcion;
+    private List <Pago> pagos;
 
     public String getNombre() {
         return nombre;
@@ -292,23 +293,22 @@ public class Socio {
         this.idfoto = idfoto;
     }
 
+    public List<Pago> getPagos() {
+        return pagos;
+    }
+
+    public void setPagos(List<Pago> pagos) {
+        this.pagos = pagos;
+    }
+
     /**
      * @return the inscripcion
      */
-    public Pago getInscripcion() {
-        return inscripcion;
-    }
-
-    /**
-     * @param inscripcion the inscripcion to set
-     */
-    public void setInscripcion(Pago inscripcion) {
-        this.inscripcion = inscripcion;
-    }
+   
 
     @Override
     public String toString() {
-        return "Socio{" + "id=" + id + ", nsocio=" + nsocio + ", apellido=" + apellido + ", dni=" + dni + ", sexo=" + sexo + ", cuil=" + cuil + ", tipo=" + tipo + ", estado=" + estado + ", domicilio=" + domicilio + ", telefono=" + telefono + ", osocial=" + osocial + ", falta=" + falta + ", fbaja=" + fbaja + ", idactividad=" + idactividad + ", telemergencia=" + telemergencia + ", observaciones=" + observaciones + ", infosanitaria=" + infosanitaria + ", idfoto=" + idfoto + ", inscripcion=" + inscripcion + '}';
+        return "Socio{" + "id=" + id + ", nsocio=" + nsocio + ", apellido=" + apellido + ", dni=" + dni + ", sexo=" + sexo + ", cuil=" + cuil + ", tipo=" + tipo + ", estado=" + estado + ", domicilio=" + domicilio + ", telefono=" + telefono + ", osocial=" + osocial + ", falta=" + falta + ", fbaja=" + fbaja + ", idactividad=" + idactividad + ", telemergencia=" + telemergencia + ", observaciones=" + observaciones + ", infosanitaria=" + infosanitaria + ", idfoto=" + idfoto + ", pagos=" + pagos + '}';
     }
     
     

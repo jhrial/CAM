@@ -7,7 +7,9 @@ import com.trabajofinal.proyecto.entidades.Pago;
 import com.trabajofinal.proyecto.entidades.Socio;
 import com.trabajofinal.proyecto.errores.ExceptionService;
 import com.trabajofinal.proyecto.repositorios.SocioRepositorio;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -134,6 +136,131 @@ public class SocioServicio {
     }
 
        
+       public Socio buscarPorNumeroSocio(Integer nSocio) throws ExceptionService {
+
+        Socio socio = socioRepositorio.findByNSocio(nSocio).get();
+
+        if (socio == null) {
+
+            throw new ExceptionService("No se encontró el socio.");
+
+        }
+
+        return socio;
+
+    }
+
+       
+       public Double calcularDeudaSocio(String idSocio)throws ExceptionService {
+        
+        Socio socio = socioRepositorio.findById(idSocio).get();
+        Double deuda = null;
+        List <Pago> pagos=pagoRepositorio.buscarPagosMorosos(idSocio);
+        int cantPagosAdeudados= pagos.size();
+        
+        Date hoy=new Date();
+        GregorianCalendar fecha=new GregorianCalendar ();
+        fecha.setTime(hoy);
+        int diaActual=fecha.get(Calendar.DATE);
+            if (cantPagosAdeudados==0){
+                
+                throw new ExceptionService ("El socio no registra deuda.");
+                
+            }
+          if (cantPagosAdeudados>0){
+                  double cuota=socio.getActividad().getPrecio();
+                  deuda = cantPagosAdeudados * cuota;
+                  
+                   if ((cantPagosAdeudados ==3)&&(diaActual>15)) {
+                
+                   deshabilitarSocio(idSocio);
+                
+
+            }
+                 
+                 
+             }                           
+           
+      return deuda;
+        }   
+          
+        public Double calcularDeudaTodosSocios2() {
+        Double deudaTotal = null;
+        List<Pago> todasLasDeudas = pagoRepositorio.buscarDeudaTodos();
+        for (Pago deuda : todasLasDeudas) {
+            deudaTotal += deuda.getMonto();
+
+        }
+
+        return deudaTotal;
+
+    }   
+        
+        
+        
+        public  List <Pago> verTodasLasDeudas (){
+            
+            
+           return pagoRepositorio.buscarDeudaTodos(); 
+        }
+        
+        
+        
+        
+   public int contarSocios (){
+   int cantSocios=0;
+   List <Socio> socios= socioRepositorio.findAll(); 
+   cantSocios=socios.size();
+               
+return cantSocios;
+            }
+
+   
+   
+
+  public Socio buscarSocioPorID (String id) throws ExceptionService {
+       
+       Socio socio=socioRepositorio.findById(id).get();
+       if (socio==null){
+             throw new ExceptionService("No se encontró el socio.");
+                }
+
+   return socio;
+}
+
+  
+   public Socio buscarSocioPorDni (Long dni) throws ExceptionService {
+       
+       Socio socio=socioRepositorio.findByDni(dni).get();
+       if (socio==null){
+             throw new ExceptionService("No se encontró el socio.");
+                }
+
+   return socio;
+}
+  
+        
+  
+   
+        
+      
+     
+    
+      
+       public List<Socio> listarSocios() throws ExceptionService {
+        List<Socio> socios = socioRepositorio.findAll();
+        if (socios == null) {
+            throw new ExceptionService("No existen socios para mostrar.");
+
+        }
+
+        return socios;
+    }
+          
+      
+            
+           
+        
     
     
    
