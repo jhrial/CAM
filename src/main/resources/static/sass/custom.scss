@@ -1,0 +1,85 @@
+
+// Custom.scss
+$primary:  #161e6f;
+$secondary: #a1daf8;
+$success: #ffed00;
+$info: #de041e;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+/* ESTILO INICIO */
+* {
+  margin:0;
+   }	
+ html, body {
+  height:100%;
+  margin:0; 
+  padding:0;
+  }
+
+   .fondoInicio{
+     background-image: url('../imagenes/andes.jpg');
+     background-size: cover;
+     background-position: center; 
+     height:750px;
+}
+@include media-breakpoint-up(md) { 
+     .fondoInicio {
+      height:770px;
+     }
+}
+
+h1 {
+     text-shadow: 2px 2px 2px $primary;
+   }
+.sombraText{
+     text-shadow: 5px 8px 4px $primary;
+}
+/* ESTILO - EL CLUB */
+
+
+.fondoClub{
+     background-image: url('../imagenes/fondo02.jpg');
+     background-size: cover;
+     background-position: center; 
+     height:770px;
+    
+}
+@include media-breakpoint-up(md) { 
+    .fondoClub {
+      height:770px;
+     }
+}
+.clubi{
+     margin-top: 5rem;
+}
+
+/* ESTILO CALENDARIO */
+.fondoCalendario{
+     background-image: url('../imagenes/fondo03.jpg');
+     background-size: cover;
+     background-position: center; 
+     height:770px;
+    
+}
+@include media-breakpoint-up(md) { 
+    .fondoCalendario {
+      height:770px;
+     }
+}
+
+.fondoContacto{
+     background-image: url('../imagenes/imglateral1.jpg');
+     background-size: cover;
+     background-position: center; 
+     height:800px;
+    
+}
+@include media-breakpoint-up(md) { 
+     .fondoContacto {
+       height:800px;
+     }
+}
+
+/* ESTILO LOGGIN */
