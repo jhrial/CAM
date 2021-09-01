@@ -13,6 +13,7 @@ public class Socio {
     private int id;
     private Integer nsocio;
     private String apellido;
+    private String nombre;
     private Long dni;
     private String sexo;
     private String cuil;
@@ -30,6 +31,15 @@ public class Socio {
     private String idfoto;
     private Pago inscripcion;
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    
     /**
      * @return the id
      */
