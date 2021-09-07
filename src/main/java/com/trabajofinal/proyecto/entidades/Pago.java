@@ -18,6 +18,15 @@ public class Pago {
  private Date fecha;
  private String periodo;  //formato mm-aaaa
  private boolean moroso;
+ private float monto; 
+
+    public float getMonto() {
+        return monto;
+    }
+
+    public void setMonto(float monto) {
+        this.monto = monto;
+    }
 
     /**
      * @return the id

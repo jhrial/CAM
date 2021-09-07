@@ -1,6 +1,4 @@
-/*
- 
- */
+
 package com.trabajofinal.proyecto.servicios;
 
 import com.trabajofinal.proyecto.entidades.Foto;
@@ -12,10 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author VicMusic
- */
+
 @Service
 public class FotoServicio {
     

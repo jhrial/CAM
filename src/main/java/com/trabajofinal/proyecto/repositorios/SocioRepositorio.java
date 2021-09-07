@@ -15,6 +15,6 @@ import org.springframework.stereotype.Repository;
 public interface SocioRepositorio extends JpaRepository<Socio, Integer>{
     
     @Query("SELECT a from socio a WHERE a.activo LIKE :nsocio AND a.activo = true")
-    public Socio buscarActividad(@Param("nsocio") Integer nsocio); 
+    public Socio buscarSocio(@Param("nsocio") Integer nsocio); 
     
 }

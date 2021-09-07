@@ -12,11 +12,16 @@ public interface PagoRepositorio extends JpaRepository<Pago, String> {
     //Resumen de Cuenta del Socio
     @Query("SELECT a from pago a WHERE a.nsocio LIKE :socio AND a.baja = false")
     public List<Pago> buscarPago(@Param("nsocio") Integer nsocio); 
+    
     //Ultimo pago realizado
     @Query("SELECT a from pago a WHERE a.nsocio LIKE :socio AND a.baja = false  order by periodo desc limit 1")
     public Pago buscarUltimoPago(@Param("nsocio") Integer nsocio); 
-    //Calcular deuda de todos los socios
+    
+//Calcular deuda de todos los socios
     @Query("SELECT a from pago a WHERE a.baja = false")
-    public List<Pago> buscarPago(); 
+    public List<Pago> buscarTodosLosPagos(); 
+    
+    
+    
     
 }

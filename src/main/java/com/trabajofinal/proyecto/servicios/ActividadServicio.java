@@ -1,6 +1,3 @@
-/*
- 
- */
 package com.trabajofinal.proyecto.servicios;
 
 import com.trabajofinal.proyecto.entidades.Actividad;
@@ -12,10 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author VicMusic
- */
+
 @Service
 public class ActividadServicio {
 
@@ -56,8 +50,8 @@ public class ActividadServicio {
     }
 
     @Transactional(readOnly = true)
-    public List<Actividad> listarActividad() {
-        return actividadrepositorio.buscarActividad();
+    public List<Actividad> listarActividad(String actividad) {
+        return actividadrepositorio.buscarActividad(actividad);
     }
 
     public void validar(String actividad, Float precio) throws Exception {

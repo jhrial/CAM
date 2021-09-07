@@ -1,13 +1,3 @@
-/*
- Actividades que se realizan al hacer un pago
-
-preguntas
-
-se paga una membresia y que pasa con las actividades.
-que sucede con los socio deudor
-
-Victor
- */
 package com.trabajofinal.proyecto.servicios;
 
 import com.trabajofinal.proyecto.entidades.Actividad;
@@ -40,111 +30,197 @@ public class PagoServicio {
      SocioRepositorio socioRepositorio;
     
 
+ public void registrarPeriodosAdeudados(Integer nsocio) {            //GENERA REGISTROS DE PERIODOS IMPAGOS (SE CONSULTAN 
 
-public void registrarPago (Integer nSocio,String periodo, String idActividad){
-    Actividad actividad= actividadRepositorio.findById(idActividad);
-    String nombreAct=actividad.getNombre();
-    Socio socio=findByNsocio(nSocio).get();
-    Date hoy=new Date();
-    Pago pagoAdeudado= pagoRepositorio.findPagosAdeudadosPorPeriodo(nSocio);
-        if (pagoAdeudado!=null) {
+        Socio socio = socioRepositorio.buscarSocio(nsocio);                   // EN LA BBDD PARA MOSTRAR UNA TABLA)                  
 
-                 pagoAdeudado.setMoroso(false);
-                 pagoAdeudado.setFecha(hoy);
-                 pagoRepositorio.save(pagoAdeudado);
-  
-            }else{
+        Pago ultimoPago = pagoRepositorio.buscarUltimoPago(nsocio);
+
+        Actividad actividad = socio.getActividad(); 
+
+        double monto=actividad.getPrecio();
+
+        
+        //Manejo de fechas con clase Date.
+
+        Date periodo=new Date();
+        GregorianCalendar fecha=new GregorianCalendar();
+        fecha.setTime(hoy);
+        int mesActual=fecha.get(Calendar.MONTH);
+        int anioActual= fecha.get(Calendar.YEAR);
+
+        Date ultimoPeriodoPagado = ultimoPago.getPeriodo();
+        fecha.setTime(ultimoPeriodoPagado);
+        int ultimoMes=fecha.get(Calendar.MONTH);
+        int ultimoAnio= fecha.get(Calendar.YEAR);
+
+
+        //Manejo de fechas con clase LocalDate
+        
+        LocalDate hoy= LocalDate.now();
+        int mesActual=hoy.getMonthValue();
+        int anioActual=hoy.getYear();
+
+        
+        if(anioActual == ultimoAnio) {
+
+            for (i=mesUltimoPago +1; i>= mesActual;i++){
+                      
+                      Pago pago=new Pago();
+                                         
+                      
+                      LocalDate periodo= LocalDate.of(i, j, 00);      //anio=i,mes=j
+
+                      Date periodoImpago=Date.valueOf(periodo);   //Recibe una fecha LocalDate y devuelve una Date
+
+                      pago.setPeriodo(periodo);
+                      pago.setNsocio(nSocio);
+                      pago.setMonto(monto);
+                      pago.setActividad(idActividad);
+                      pago.setMoroso(true);
+
+                      pagoRepositorio.save(deuda);
+
+                      socio.getPagos().add(deuda);
+                         
+                             }
+       }else {
+
+                    for (i=ultimoAnio; i<= anioActual; i++) {
+
+                             if(i==ultimoAnio){
+
+                                    for (j=ultimoMes+1; j<= 12; j++){
+
+                                         Pago pago=new Pago();
+                                         mes=j;
+                                         anio=i;
+
+
+                                         LocalDate periodo= LocalDate.of(i, j, 00);      //anio=i,mes=j
+
+                                         Date periodoImpago=Date.valueOf(periodo);   //Recibe una fecha LocalDate y devuelve una Date
+
+
+
+
+                                         pago.setPeriodo(periodo);
+                                         pago.setNsocio(nSocio);
+                                         pago.setMonto(monto);
+                                         pago.setActividad(idActividad);
+                                         pago.setMoroso(true);
+                                         pagoRepositorio.save(deuda);
+
+                                        socio.getPagos().add(deuda);
+
+
+                                                              
+                                            }
+
+                        
+                          } else if (i== anioActual) {
+
+                                      for(j=1;j<=mesActual;j++)){
+
+                                         Pago pago=new Pago();
+
+                                         mes=j;
+                                         anio=i;
+
+                                         LocalDate periodo= LocalDate.of(i, j, 00);      //anio=i,mes=j
+
+                                         Date periodoImpago=Date.valueOf(periodo);   //Recibe una fecha LocalDate y devuelve una Date
+
+
+                                         pago.setFecha(hoy);
+                                         pago.setPeriodo(periodo);
+                                         pago.setNsocio(nSocio);
+                                         pago.setMonto(monto);
+                                         pago.setActividad(idActividad);
+                                         pago.setMoroso(true);
+
+                                         pagoRepositorio.save(deuda);
+
+                                         socio.getPagos().add(deuda);
+
+
+
+
+
+                                           }
+
+
+                                                         
+
+          
+                           }else {
+                                     for (j=1;j<=12;j++) {
+                                         Pago pago=new Pago();
+
+                                         LocalDate periodo= LocalDate.of(i, j, 00);      //anio=i,mes=j
+
+                                         Date periodoImpago=Date.valueOf(periodo);   //Recibe una fecha LocalDate y devuelve una Date
+
+
+                                         pago.setPeriodo(periodo);
+                                         pago.setNsocio(nSocio);
+                                         pago.setMonto(monto);
+                                         pago.setActividad(idActividad);
+                                         pago.setMoroso(true);
+                                         pagoRepositorio.save(deuda);
+
+//                                       socio.getPagos().add(deuda);
+
+
+
+                                         }
+
+                                   }
+        
+
+
+                     }
+
+
+
+     public List <Pago> consultarDeuda(Integer nSocio) {
+          
+             List <Pago> periodosImpagos= pagoRepositorio.buscarPeriodosImpagos(nSocio);
+
+
+             return periodosImpagos;
+        }
+
+
+
+          
+                 
+   public void registrarPago (String idPago){
     
+   Date hoy=new Date();
+           
+    Pago pago=pagoRepositorio.findById(idPago).get();    
     
-    Pago pago= new Pago();
-    pago.setnSocio(nSocio);
-    pago.setActividad(nombreAct);
     pago.setFecha(hoy);
-    pago.setPeriodo(periodo);
-    pago.setMonto(actividad.getPrecio());
     pago.setMoroso(false);
     socio.getPagos().add(pago);
     pagoRepositorio.save(pago);
 
       }
 
-     
-}   
-       
-           
-    public void registrarPeriodosImpagos(String idSocio) {
-
-        List<Pago> deudas = new ArrayList();
-
-        Socio socio = socioRepositorio.findById(idSocio);
-        Pago pago ultimoPago = pagoRepositorio.buscarUltimoPago(idSocio);
-
-        Date hoy= new Date();
-        GregorianCalendar fecha=new GregorianCalendar();
-        fecha.setTime(hoy);
-        int mesActual=fecha.get(Calendar.MONTH);
-
-        String ultimoPeriodoPagado = ultimoPago.getPeriodo();
-        String soloMes= ultimoPeriodoPagado.substring(0,2);
-        int ultimoMesPagado=Integer.valueOf(soloMes);
-        
-        
-        int diferenciaMeses = mesActual - ultimoMesPagado;
-        if (diferenciaMeses > 0) {
-            String actividad = socio.getActividad().getId();
-            Integer nSocio = socio.getnSocio();
- 
-        
-           for (int i = ultimoMesPagado + 1; i <= mesActual; i++) {
-            String periodo = i + "/21";
-            registrarDeuda(idSocio,nSocio,periodo,actividad);
-//            Pago deuda = new Pago();
-//            deuda.setPeriodo(periodo);
-//            deuda.setFecha(new Date());
-//            deuda.setMoroso(true);
-//            deuda.setnSocio(nSocio);
-//            deuda.setActividad(actividad);
-//            pagoRepositorio.save(deuda);
-
-//            socio.getPagos().add(deuda);
-
-        }
-        
-                 
-       
-        } 
-        
-        
-    }
-        
-
-  public void registrarDeuda(String IdSocio,Integer nSocio,String periodo, String idActividad){
-    Actividad a= actividadRepositorio.findById(idActividad);
-    Socio socio=socioRepositorio.findById (IdSocio).get();
-       
-    Pago pago= new Pago();
-    pago.setnSocio(nSocio);
-    pago.setActividad(a.getNombre());
-    pago.setPeriodo(periodo);
-    pago.setMonto(a.getPrecio());
-    pago.setMoroso(true);
-    pagoRepositorio.save(pago);
-    socio.getPagos().add(pago);
     
-             }
 
 
-    public List <Pago> listarPagos(){
+        public List <Pago> listarPagos(){
            
-          List pagos = pagoRepositorio.buscarTodosLosPagos();
+        List pagos = pagoRepositorio.buscarTodosLosPagos();
 
-          return pagos;
+        return pagos;
 
           }
 
  
-    
-    
+       
     
     
     

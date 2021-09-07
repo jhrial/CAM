@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 
 @Entity
@@ -23,24 +26,19 @@ public class Socio {
     private String domicilio;
     private String telefono;
     private String osocial;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date falta;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fbaja;
-    private String idactividad;
+    @OneToOne
+    private Actividad actividad;
     private String telemergencia;
     private String observaciones;
     private String infosanitaria;
     private String idfoto;
+    @OneToMany
     private List <Pago> pagos;
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    
     /**
      * @return the id
      */
@@ -81,6 +79,20 @@ public class Socio {
      */
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     /**
@@ -224,17 +236,17 @@ public class Socio {
     }
 
     /**
-     * @return the idactividad
+     * @return the actividad
      */
-    public String getIdactividad() {
-        return idactividad;
+    public Actividad getActividad() {
+        return actividad;
     }
 
     /**
-     * @param idactividad the idactividad to set
+     * @param actividad the actividad to set
      */
-    public void setIdactividad(String idactividad) {
-        this.idactividad = idactividad;
+    public void setActividad(Actividad actividad) {
+        this.actividad = actividad;
     }
 
     /**
@@ -293,24 +305,20 @@ public class Socio {
         this.idfoto = idfoto;
     }
 
-    public List<Pago> getPagos() {
+    /**
+     * @return the pagos
+     */
+    public List <Pago> getPagos() {
         return pagos;
     }
 
-    public void setPagos(List<Pago> pagos) {
+    /**
+     * @param pagos the pagos to set
+     */
+    public void setPagos(List <Pago> pagos) {
         this.pagos = pagos;
     }
 
-    /**
-     * @return the inscripcion
-     */
-   
-
-    @Override
-    public String toString() {
-        return "Socio{" + "id=" + id + ", nsocio=" + nsocio + ", apellido=" + apellido + ", dni=" + dni + ", sexo=" + sexo + ", cuil=" + cuil + ", tipo=" + tipo + ", estado=" + estado + ", domicilio=" + domicilio + ", telefono=" + telefono + ", osocial=" + osocial + ", falta=" + falta + ", fbaja=" + fbaja + ", idactividad=" + idactividad + ", telemergencia=" + telemergencia + ", observaciones=" + observaciones + ", infosanitaria=" + infosanitaria + ", idfoto=" + idfoto + ", pagos=" + pagos + '}';
-    }
-    
     
     
 }

@@ -11,8 +11,8 @@ import org.springframework.data.repository.query.Param;
  * @author VicMusic
  */
 public interface ActividadRepositorio extends JpaRepository<Actividad, String> {
-    @Query("SELECT a from actividad a WHERE a.actividad LIKE :actividad AND a.baja = false")
-    public List<Actividad> buscarActividad(@Param("actividad") String actividad); 
+   // @Query("SELECT a from actividad a WHERE a.actividad LIKE :actividad AND a.baja = false")
+    // public List<Actividad> buscarActividad(@Param("actividad") String actividad); 
     
 
 }
