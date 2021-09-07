@@ -16,8 +16,17 @@ public class Pago {
  private Integer nsocio;
  private String idactividad;
  private Date fecha;
- private Date periodo;  //formato mm-aaaa
+ private String periodo;  //formato mm-aaaa
  private boolean moroso;
+ private float monto; 
+
+    public float getMonto() {
+        return monto;
+    }
+
+    public void setMonto(float monto) {
+        this.monto = monto;
+    }
 
     /**
      * @return the id
@@ -75,19 +84,18 @@ public class Pago {
         this.fecha = fecha;
     }
 
-    /**
-     * @return the periodo
-     */
-    public Date getPeriodo() {
+    public String getPeriodo() {
         return periodo;
     }
 
-    /**
-     * @param periodo the periodo to set
-     */
-    public void setPeriodo(Date periodo) {
+    public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
+
+    /**
+     * @return the periodo
+     */
+   
 
     /**
      * @return the moroso

@@ -1,4 +1,6 @@
-
+/*
+ 
+ */
 package com.trabajofinal.proyecto.servicios;
 
 import com.trabajofinal.proyecto.entidades.Usuario;
@@ -11,7 +13,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-
+/**
+ *
+ * @author VicMusic
+ */
 @Service
 public class UsuarioServicio {
 
@@ -65,7 +70,7 @@ public class UsuarioServicio {
     }
 
     public void validar(String rol, String email, String clave, Date creado, Date editado, boolean activo) throws Exception {
-        if (rol == null) {
+        if (rol == null || rol.isEmpty() || rol.contains("  ")) {
             throw new Exception();
         }
 

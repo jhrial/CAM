@@ -14,7 +14,7 @@ public class Actividad {
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String actividad;
-    private float precio;
+    private float precio; //Precio Actualizado de pago. Inflación.
     private boolean baja;
     private Date fbaja;
 
