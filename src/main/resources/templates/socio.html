@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>CLUB ANDINISTA MENDOZA</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="font/bootstrap-icons.css" />
+  </head>
+  <body>
+    <!-- SECCION 01 - ENCABEZADO - BARRA DE NAVEGACION -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="/">CAM</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link " href="/"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#elclub">El Club</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#calendario">Calendario</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/galeria">Galería</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarScrollingDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Actividades
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="escuelademontana.html"
+                      >Escuela de Montaña</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="altamontana.html"
+                      >Alta Montaña</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="mediamontana.html"
+                      >Media Montaña</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="senderismo.html"
+                      >Senderismo</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="escalada.html">Escalada</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="refugios.html">Refugios</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="cartografia.html"
+                      >Cartografía</a
+                    >
+                  </li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link  active" href="/socio">Hazte Socio</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#contacto">Contacto</a>
+              </li>
+            </ul>
+          
+            <a href="/login" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Ingresar</a>
+                Ingresar
+           
+            </form>
+          </div>
+        </div>
+      </nav>
+     
+    </header>
+
+    <!-- SECCION FORMULARIO DE INSCRIPCION -->
+    <div class="container mt-5">
+      <h2 class="mb-5 pt-5 text-center text-info mt-5">Formulario de Inscripción</h2>
+      <form class="row justify-content-center gx-3 gy-2 form-inline bg-light sm-m-5 p-3 rounded-3">
+          
+        <!-- Datos personales -->
+        <h4 class="ms-5 ps-5 text-secondary"> <i class="bi bi-person-circle me-2"></i>Datos Personales</h4>
+          <div class="form-group col-12 col-sm-5 ">
+           <label class="sr-only" for="nombre">Nombre: </label>
+           <input type="text" class="form-control" id="nombre" placeholder=" Ejemplo: Juan">
+          </div>
+            
+            <div class="form-group col-12 col-sm-5">
+               <label class="" for="apellido">Apellido: </label>
+               <input type="text" class="form-control" id="apellido" placeholder=" Ejemplo: Pérez">
+              </div>
+
+
+              <div class="form-group col-12 col-sm-5">
+               <label class="sr-only" for="dni">DNI: </label>
+               <input type="text" class="form-control" id="dni">
+              </div>
+                
+                <div class="form-group col-12 col-sm-5">
+                   <label class="" for="sexo">Sexo: </label>
+                   <input type="text" class="form-control" id="sexo">
+                  </div>
+
+                  <div class="form-group col-12 col-sm-5">
+                    <label class="sr-only" for="telefono">Teléfono: </label>
+                    <input type="text" class="form-control" id="telefono">
+                   </div>
+                     
+                     <div class="form-group col-12 col-sm-5">
+                        <label class="" for="email">E-mail: </label>
+                        <input type="text" class="form-control" id="email">
+                       </div>
+
+                       <div class="form-group col-14 col-sm-5 ">
+                        <label class="" for="cuil">Cuil: </label>
+                        <input type="text" class="form-control" id="cuil">
+                       </div>
+          
+                       <div class="form-group col-12 col-sm-5">
+                        <label class="" for="ssocial">Obra Social: </label>
+                        <input type="text" class="form-control" id="ssocial">
+                        <br>
+                       </div>
+                       <div class=" col-12 col-sm-5 align-items-start">
+                        <label for="formFile" class="form-label">Adjunte su foto tamaño carnet</label>
+                        <input class="form-control" type="file" id="fotoSocio">
+                      </div>
+                      <div class=" col-12 col-sm-5 align-items-start">
+                     
+                      </div>
+
+
+<!-- Direccion -->
+     <h4 class="ms-5 ps-5 pt-4 text-secondary"> <i class="bi bi-geo-alt-fill me-3"></i>Dirección </h4>
+     <div class="form-group col-12 col-sm-4">
+          <label class="sr-only" for="ciudad">Ciudad: </label>
+          <input type="text" class="form-control" id="ciudad">
+         </div>
+           
+           <div class="form-group col-6 col-sm-4">
+              <label class="" for="calle">Calle: </label>
+              <input type="text" class="form-control" id="calle">
+             </div>
+
+             <div class="form-group col-6 col-sm-2">
+              <label class="" for="numero">Número: </label>
+              <input type="text" class="form-control" id="numero">
+              <br><br>
+             </div>
+                       
+                      
+                       <h4 class="ms-5 ps-5 text-secondary"> <i class="bi bi-image-alt me-2"></i> Actividades de Interes </h4>
+                      
+                       <div class="col-4 col-sm-2 form-check form-check-inline ms-5 ps-5">
+                        <input class="form-check-input" type="radio" name="altaMontana" id="altaMontana" value="option1">
+                        <label class="form-check-label" for="flexCheckDefault" >Alta Montaña</label>
+                      </div>
+
+                      <div class="col-4 col-sm-2 form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="mediaMontana" id="mediaMontana" value="option2">
+                        <label class="form-check-label" for="flexCheckChecked">Media Montaña</label>
+                      </div>
+
+                      <div class="col-4 col-sm-2 form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="escalada" id="escalada" value="option3">
+                        <label class="form-check-label" for="flexCheckChecked">Escalada</label>
+                       
+                      </div>
+
+                      <div class="col-4 col-sm-2 form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="refugios" id="refugios" value="option4">
+                        <label class="form-check-label" for="flexCheckChecked">Refugios</label>
+                      </div>
+
+
+
+<!-- Observaciones de salud y otros -->
+  <h4 class="ms-5 ps-5 pt-4  text-secondary"> <i class="bi bi-binoculars-fill me-5"></i>Observaciones</h4> 
+  <h6 class="col-12 ps-5 ms-5"> Observaciones personales</h6>
+
+  <div>    
+  <h6 class="col-1 text-start form-check-inline ms-5 ps-5">Alergias?</h6>
+
+  <div class="form-check form-check-inline col-1 ms-5 ps-5">
+    <input class="form-check-input" type="radio" id="alergico" name="alergico" value="alergico">
+    <label for="alergico text-start">SI</label>
+  </div>
+  
+  <div class="form-check form-check-inline col-1">
+    <input class="form-check-input" type="radio" id="noAlergico" name="noAlergico" value="noAlergico">
+    <label class="form-check-label text-start" for="noAlergico"> NO</label>
+  </div>
+  
+    <div class="form-group form-check-inline col-9 col-sm-5 ">
+    
+      <input type="text" class="form-control" id="soyAlergicoa"placeholder="soy alergico a...." >
+     </div>
+
+
+     <h6 class="col-12 ps-5 mt-5"> Alguna otra información que desee comunicarnos?</h6>
+     <div class="form-floating mx-5">
+      <textarea class="form-control" placeholder="Desea informarnos algo más...?" id="otraObservacion"></textarea>
+     
+    </div>
+
+</div>           
+<br><br>
+
+      <!-- Forma de pago -->
+      <h4 class="ms-5 ps-5 pt-4  text-secondary"> <i class="bi bi-coin me-2"></i></i>Formas de Pago</h4>
+
+<div class="row">  
+<h6 class="col-3 text-start form-check-inline ps-5 ">Su cuota la pagará...</h6>
+
+  <div class="form-check form-check-inline col-1 ps-1 ">
+    <input class="form-check-input" type="radio" id="alergico" name="efectivo" value="efectivo">
+    <label for="alergico text-start">Efectivo</label>
+  </div>
+  
+  <div class="form-check form-check-inline col-2 ">
+    <input class="form-check-input" type="radio" id="tCredito" name="Tcredito" value="Tcredito">
+    <label class="form-check-label text-start" for="tCredito"> Tarjeta de crédito</label>
+  </div>
+  <div class="col-4"></div>
+
+</div>
+
+<div class="container mt-5">  
+<div class="row"> 
+  <div class="col-4"></div>
+  <div class="col-4"> <input class="btn btn-primary" type="submit" value="Enviar"></div>
+  <div class="col-4"></div>
+</div>
+</div>
+
+
+</div>
+  <br><br><br><br>
+
+
+      </form>
+    </div>
+
+    <!-- SECCION 06 - FOOTER 
+    <footer id="pie" class="">
+      <div class="container-fluid bg-dark p-5">
+        <div class="row">
+          <div class="col-12 ms-5 col-sm-4 ms-2 mb-5">
+            <h4 class="text-success fs-5 fw-light">Contacto</h4>
+            <p class="text-light fw-light">
+              Dirección: Fray Luis Beltrán 357 - San José <br />
+              Guaymallén - Mendoza – Argentina<br />
+              Horarios: de 17 a 23 hs de lunes a viernes<br />
+              clubandinistamza@gmail.com
+            </p>
+          </div>
+
+          <div class="col-12 col-sm-3 ms-5">
+            <h4 class="text-success fs-5 fw-light">CAD</h4>
+          </div>
+
+          <div class="col-12 col-sm-2 ms-5">
+            <h4 class="text-success fs-5 fw-light">Redes</h4>
+            <a href="https://www.facebook.com/clubandinistamendoza">
+              <i class="bi bi-facebook text-light fs-3"></i>
+            </a>
+
+            <a href="https://www.instagram.com/clubandinistamza/">
+              <i class="bi bi-instagram text-light fs-3 mx-3"></i>
+            </a>
+
+            <a href="https://twitter.com/clubandinista35">
+              <i class="bi bi-twitter text-light fs-3"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  FIN SECCION 06 - FOOTER -->
+
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
