@@ -1,13 +1,22 @@
 package com.trabajofinal.proyecto.entidades;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
 
+
+
+@Entity
 public class Pago {
-    
+ @Id
+ @GeneratedValue(generator = "uuid")
+ @GenericGenerator(name = "uuid", strategy = "uuid2")   
  private String id;
  private Integer nsocio;
  private String idactividad;
  private Date fecha;
- private Date periodo;  //formato mm-aaaa
+ private String periodo;  //formato mm-aaaa
  private boolean moroso;
 
     /**
@@ -66,19 +75,18 @@ public class Pago {
         this.fecha = fecha;
     }
 
-    /**
-     * @return the periodo
-     */
-    public Date getPeriodo() {
+    public String getPeriodo() {
         return periodo;
     }
 
-    /**
-     * @param periodo the periodo to set
-     */
-    public void setPeriodo(Date periodo) {
+    public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
+
+    /**
+     * @return the periodo
+     */
+   
 
     /**
      * @return the moroso
